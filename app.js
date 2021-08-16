@@ -1,5 +1,8 @@
-function avg(a, b){
-    return ((a+b)/2);
+
+function displaydate(){
+    let mydate = new Date();
+    console.log(mydate);
 }
 
-console.log(avg(61, 59))
+
+document.getElementById("button").addEventListener("click", displaydate);
