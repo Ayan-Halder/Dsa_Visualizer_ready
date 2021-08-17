@@ -6,10 +6,22 @@ function displaydate(){
 
 let button = document.getElementById('button')
 let head = document.getElementById('h2')
+let array = document.getElementsByClassName('arr')
 
+function randomarray(){
+    let a = [];
+    for(i = 0; i<10; i++) {
+        a[i] = Math.floor(Math.random() * 1000);
+        document.getElementById('arr'+i).style.width = a[i]+'px';
+        document.getElementById('arr'+i).innerText = a[i];
+    }
+
+    console.log(a);
+}
 
 button.addEventListener("click", function(){
     displaydate();
+    randomarray();
     head.innerText = "The button is clicked"
 });
 button.addEventListener("mouseout", function(){
