@@ -11,6 +11,13 @@ let array = document.getElementsByClassName('arr')
 let arraytosort;
 
 
+function waitforme(ms)  {
+    return new Promise( resolve => {
+        setTimeout(()=> {resolve('')} ,ms );
+    })
+}
+
+
 function bblSort(arr){
     for(var i = 0; i < arr.length; i++){
         var j = 0;
@@ -55,9 +62,7 @@ function printArray(a){
         }
     }, 100)
     }
-
     myLoop(); 
-    
 }
 
 
