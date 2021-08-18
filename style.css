@@ -3,16 +3,35 @@
     padding: 0;
 }
 
+#h2{
+    text-align: center;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 5px solid black;
+}
+
 .btn{
     padding: 10px;
     border-radius: 5px;
     width: 100px;
+    margin: 10px;
+    border-color: rgb(20, 20, 20);
+    background-color: white;
+    color: black;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: rgb(20, 20, 20);
+    color: white;
 }
 
 .arr{
     height: 20px;
     width: 2px;
-    margin: 2px;
+    margin: 3px;
     border-radius: 3px;
     background-image: linear-gradient(to right,rgb(255, 255, 255), rgb(183, 255, 183), green);
     text-align: center;

@@ -28,7 +28,7 @@ async function bblSort(arr){
                 document.getElementById('arr'+j).style.background = "linear-gradient(to right,rgb(255, 255, 255),red, red)";
                 document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right,rgb(255, 255, 255),red,  red)";
                 printArray(arr);
-                await waitforme(1000);
+                await waitforme(500);
                 document.getElementById('arr'+j).style.background = "";
             }
             document.getElementById('arr'+i).style.background = "green";
