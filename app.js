@@ -28,7 +28,7 @@ function bblSort(arr){
 function printArrayFast(a){
     for(i = 0; i<10; i++) {
         var id1='arr'+i;
-        document.getElementById(id1).style.width = a[i]+'px';
+        document.getElementById(id1).style.width = a[i]+'%';
         document.getElementById('arr'+i).innerText = a[i];
     }
 }
@@ -38,7 +38,7 @@ function printArray(a){
     function myLoop() {
     setTimeout(function() {  
         var id1='arr'+i;
-        document.getElementById(id1).style.width = a[i]+'px';
+        document.getElementById(id1).style.width = a[i]+'%';
         document.getElementById('arr'+i).innerText = a[i]; 
         i++;
         if (i < 10) {
