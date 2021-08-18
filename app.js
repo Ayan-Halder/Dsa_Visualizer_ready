@@ -1,9 +1,4 @@
 
-// function displaydate(){
-//     let mydate = new Date();
-//     console.log(mydate);
-// }
-
 let button = document.getElementById('arraygen')
 let sortit = document.getElementById('sortit')
 let head = document.getElementById('h2')
@@ -19,7 +14,7 @@ function waitforme(ms)  {
 
 
 async function bblSort(arr){
-    for(var i = 0; i < arr.length+1; i++){
+    for(var i = 0; i < arr.length; i++){
       for(var j = 0; j < ( arr.length - i -1 ); j++){
         if(arr[j] > arr[j+1]){
                 var temp = arr[j];
@@ -35,10 +30,8 @@ async function bblSort(arr){
         } 
         document.getElementById('arr'+i).style.background = "green";
     }
-    document.getElementById('arr'+i).style.background = "";
-    // printArray(arr);
-   }
-
+    document.getElementById('arr'+ (i-1)).style.background = "green";
+}
 
      
 function printArrayFast(a){
@@ -66,7 +59,6 @@ function printArray(a){
     myLoop(); 
 }
 
-
 function randomarray(){
     let a = [];
     for(i = 0; i<10; i++) {
@@ -78,9 +70,7 @@ function randomarray(){
 }
 
 button.addEventListener("click", function(){
-    // displaydate();
     arraytosort = randomarray();
-    // head.innerText = "The button is clicked"
 });
 
 sortit.addEventListener("click", function(){
