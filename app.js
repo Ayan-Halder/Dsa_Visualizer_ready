@@ -10,27 +10,29 @@ let head = document.getElementById('h2')
 let array = document.getElementsByClassName('arr')
 let arraytosort;
 
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-}
 
 function bblSort(arr){
     for(var i = 0; i < arr.length; i++){
-      for(var j = 0; j < ( arr.length - i -1 ); j++){
-        if(arr[j] > arr[j+1]){
-          var temp = arr[j]
-          arr[j] = arr[j + 1]
-          arr[j+1] = temp
-          printArrayFast(arr);
+        var j = 0;
+        function myLoop() {
+            setTimeout(function() {  
+                if(arr[j] > arr[j+1]){
+                        var temp = arr[j]
+                        arr[j] = arr[j + 1]
+                        arr[j+1] = temp
+                        printArray(arr);
+                        }
+                    j++;
+                    if (j < ( arr.length - i -1 )) {
+                    myLoop();
+                    }
+                }, 100)
+            }
+            myLoop();
         }
-      } 
-    }
-    // printArray(arr);
-   }
+}
+
+
      
 function printArrayFast(a){
     for(i = 0; i<10; i++) {
