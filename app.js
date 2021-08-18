@@ -1,14 +1,14 @@
 
-function displaydate(){
-    let mydate = new Date();
-    console.log(mydate);
-}
+// function displaydate(){
+//     let mydate = new Date();
+//     console.log(mydate);
+// }
 
 let button = document.getElementById('arraygen')
 let sortit = document.getElementById('sortit')
 let head = document.getElementById('h2')
 let array = document.getElementsByClassName('arr')
-
+let arraytosort;
 
 
 function bblSort(arr){
@@ -18,20 +18,37 @@ function bblSort(arr){
           var temp = arr[j]
           arr[j] = arr[j + 1]
           arr[j+1] = temp
-          
+          printArray(arr);
         }
       } 
     }
-    printArray(arr);
+    // printArray(arr);
    }
      
-
-function printArray(a){
+function printArrayFast(a){
     for(i = 0; i<10; i++) {
         var id1='arr'+i;
         document.getElementById(id1).style.width = a[i]+'px';
         document.getElementById('arr'+i).innerText = a[i];
     }
+}
+
+function printArray(a){
+    var i = 0;
+    function myLoop() {
+    setTimeout(function() {  
+        var id1='arr'+i;
+        document.getElementById(id1).style.width = a[i]+'px';
+        document.getElementById('arr'+i).innerText = a[i]; 
+        i++;
+        if (i < 10) {
+        myLoop();
+        }
+    }, 100)
+    }
+
+    myLoop(); 
+    
 }
 
 
@@ -42,17 +59,17 @@ function randomarray(){
     }
     printArray(a);
 
-    console.log(a);
+    return a;
 }
 
 button.addEventListener("click", function(){
-    displaydate();
-    randomarray();
-    head.innerText = "The button is clicked"
+    // displaydate();
+    arraytosort = randomarray();
+    // head.innerText = "The button is clicked"
 });
 
 sortit.addEventListener("click", function(){
-
+    bblSort(arraytosort);
 });
 
 
