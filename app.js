@@ -10,6 +10,13 @@ let head = document.getElementById('h2')
 let array = document.getElementsByClassName('arr')
 let arraytosort;
 
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+}
 
 function bblSort(arr){
     for(var i = 0; i < arr.length; i++){
@@ -18,7 +25,7 @@ function bblSort(arr){
           var temp = arr[j]
           arr[j] = arr[j + 1]
           arr[j+1] = temp
-          printArray(arr);
+          printArrayFast(arr);
         }
       } 
     }
@@ -28,7 +35,7 @@ function bblSort(arr){
 function printArrayFast(a){
     for(i = 0; i<10; i++) {
         var id1='arr'+i;
-        document.getElementById(id1).style.width = a[i]+'px';
+        document.getElementById(id1).style.width = a[i]+'%';
         document.getElementById('arr'+i).innerText = a[i];
     }
 }
@@ -38,7 +45,7 @@ function printArray(a){
     function myLoop() {
     setTimeout(function() {  
         var id1='arr'+i;
-        document.getElementById(id1).style.width = a[i]+'px';
+        document.getElementById(id1).style.width = a[i]+'%';
         document.getElementById('arr'+i).innerText = a[i]; 
         i++;
         if (i < 10) {
@@ -55,7 +62,7 @@ function printArray(a){
 function randomarray(){
     let a = [];
     for(i = 0; i<10; i++) {
-        a[i] = Math.floor(Math.random() * 1000);
+        a[i] = Math.floor(Math.random() * 100);
     }
     printArray(a);
 
