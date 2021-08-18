@@ -11,19 +11,35 @@ let array = document.getElementsByClassName('arr')
 let arraytosort;
 
 
-function bblSort(arr){
-    for(var i = 0; i < arr.length; i++){
+function waitforme(ms)  {
+    return new Promise( resolve => {
+        setTimeout(()=> {resolve('')} ,ms );
+    })
+}
+
+
+async function bblSort(arr){
+    for(var i = 0; i < arr.length+1; i++){
       for(var j = 0; j < ( arr.length - i -1 ); j++){
         if(arr[j] > arr[j+1]){
-          var temp = arr[j]
-          arr[j] = arr[j + 1]
-          arr[j+1] = temp
-          printArray(arr);
-        }
-      } 
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j+1] = temp;
+                document.getElementById('arr'+j).style.background = "linear-gradient(to right,rgb(255, 255, 255),red, red)";
+                document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right,rgb(255, 255, 255),red,  red)";
+                printArray(arr);
+                await waitforme(1000);
+                document.getElementById('arr'+j).style.background = "";
+            }
+            document.getElementById('arr'+i).style.background = "green";
+        } 
+        document.getElementById('arr'+i).style.background = "green";
     }
+    document.getElementById('arr'+i).style.background = "";
     // printArray(arr);
    }
+
+
      
 function printArrayFast(a){
     for(i = 0; i<10; i++) {
@@ -39,6 +55,7 @@ function printArray(a){
     setTimeout(function() {  
         var id1='arr'+i;
         document.getElementById(id1).style.width = a[i]+'%';
+        document.getElementById('arr'+i).style.background = "linear-gradient(to right,rgb(255, 255, 255), rgb(183, 255, 183), green)";
         document.getElementById('arr'+i).innerText = a[i]; 
         i++;
         if (i < 10) {
@@ -46,16 +63,14 @@ function printArray(a){
         }
     }, 100)
     }
-
     myLoop(); 
-    
 }
 
 
 function randomarray(){
     let a = [];
     for(i = 0; i<10; i++) {
-        a[i] = Math.floor(Math.random() * 1000);
+        a[i] = Math.floor(Math.random() * 100);
     }
     printArray(a);
 
