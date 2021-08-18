@@ -18,26 +18,26 @@ function waitforme(ms)  {
 }
 
 
-function bblSort(arr){
-    for(var i = 0; i < arr.length; i++){
-        var j = 0;
-        function myLoop() {
-            setTimeout(function() {  
-                if(arr[j] > arr[j+1]){
-                        var temp = arr[j]
-                        arr[j] = arr[j + 1]
-                        arr[j+1] = temp
-                        printArray(arr);
-                        }
-                    j++;
-                    if (j < ( arr.length - i -1 )) {
-                    myLoop();
-                    }
-                }, 100)
+async function bblSort(arr){
+    for(var i = 0; i < arr.length+1; i++){
+      for(var j = 0; j < ( arr.length - i -1 ); j++){
+        if(arr[j] > arr[j+1]){
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j+1] = temp;
+                document.getElementById('arr'+j).style.background = "linear-gradient(to right,rgb(255, 255, 255),red, red)";
+                document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right,rgb(255, 255, 255),red,  red)";
+                printArray(arr);
+                await waitforme(1000);
+                document.getElementById('arr'+j).style.background = "";
             }
-            myLoop();
-        }
-}
+            document.getElementById('arr'+i).style.background = "green";
+        } 
+        document.getElementById('arr'+i).style.background = "green";
+    }
+    document.getElementById('arr'+i).style.background = "";
+    // printArray(arr);
+   }
 
 
      
@@ -55,6 +55,7 @@ function printArray(a){
     setTimeout(function() {  
         var id1='arr'+i;
         document.getElementById(id1).style.width = a[i]+'%';
+        document.getElementById('arr'+i).style.background = "linear-gradient(to right,rgb(255, 255, 255), rgb(183, 255, 183), green)";
         document.getElementById('arr'+i).innerText = a[i]; 
         i++;
         if (i < 10) {
