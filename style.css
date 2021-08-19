@@ -11,6 +11,12 @@
     border: 5px solid black;
 }
 
+.buttons{
+    display: flex;
+    justify-content: center;
+
+}
+
 .btn{
     padding: 10px;
     border-radius: 5px;
@@ -36,10 +42,6 @@
     background-image: linear-gradient(to right,rgb(255, 255, 255), rgb(183, 255, 183), green);
     text-align: center;
 }
-
-
-
-
 
 .arraydisplay{
     background: rgb(20, 20, 20);
