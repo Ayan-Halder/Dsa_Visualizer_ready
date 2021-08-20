@@ -1,6 +1,7 @@
 
 let button = document.getElementById('arraygen')
 let sortit = document.getElementById('sortit')
+let inserSort = document.getElementById('inSort')
 let head = document.getElementById('h2')
 let array = document.getElementsByClassName('arr')
 let arraytosort;
@@ -12,6 +13,30 @@ function waitforme(ms)  {
     })
 }
 
+
+async function insertionSort(arr)
+{ 
+    n = arr.length;
+    let i, key, j; 
+    for (i = 1; i < n; i++)
+    { 
+        key = arr[i]; 
+        j = i - 1; 
+        while (j >= 0 && arr[j] > key)
+        { 
+            arr[j + 1] = arr[j]; 
+            j = j - 1; 
+            printArrayFast(arr);
+            
+        } 
+        arr[j + 1] = key; 
+        document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right,rgb(255, 255, 255),red, red)";
+        await waitforme(500);
+        document.getElementById('arr'+(j+1)).style.background = "green";
+    } 
+    document.getElementById('arr'+(i-1)).style.background = "green";
+} 
+   
 
 async function bblSort(arr){
     for(var i = 0; i < arr.length; i++){
@@ -75,6 +100,10 @@ button.addEventListener("click", function(){
 
 sortit.addEventListener("click", function(){
     bblSort(arraytosort);
+});
+
+inserSort.addEventListener("click", function(){
+    insertionSort(arraytosort);
 });
 
 
