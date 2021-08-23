@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: "poppins";
 }
 
 #h2{
@@ -9,6 +10,12 @@
     margin: 10px;
     border-radius: 10px;
     border: 5px solid black;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+
 }
 
 .btn{
@@ -37,14 +44,33 @@
     text-align: center;
 }
 
-
-
-
-
 .arraydisplay{
     background: rgb(20, 20, 20);
     width: 90%;
     padding: 20px;
     margin: 20px auto;
     border-radius: 5px;
+}
+
+.descriptions{
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.dec-heading{
+    margin: 10px;
+    padding: 10px;
+}
+
+.disabled{
+    background-color: rgb(121, 121, 121);
+    border-color:rgb(121, 121, 121);
+    color:rgb(255, 255, 255);
+    cursor: default;
+}
+
+.disabled:hover{
+    background-color: rgb(121, 121, 121);
+    color:rgb(255, 255, 255);
 }
