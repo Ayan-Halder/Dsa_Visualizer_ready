@@ -1,4 +1,3 @@
-
 let button = document.getElementById('arraygen')
 let sortit = document.getElementById('sortit')
 let inserSort = document.getElementById('inSort')
@@ -15,15 +14,49 @@ function waitforme(ms)  {
 
 function disableAll(){
     button.disabled = true;
+    button.classList.add("disabled");
     inserSort.disabled = true;
+    inserSort.classList.add("disabled");
     sortit.disabled = true;
+    sortit.classList.add("disabled");
 }
 
 function activateAll(){
     button.disabled = false;
+    button.classList.remove("disabled");
     inserSort.disabled = false;
+    inserSort.classList.remove("disabled");
     sortit.disabled = false;
+    sortit.classList.remove("disabled");
 }
+
+
+function swap(arr,xp, yp)
+{
+    var temp = arr[xp];
+    arr[xp] = arr[yp];
+    arr[yp] = temp;
+}
+ 
+async function selectionSort(arr)
+{
+    n = arr.length;
+    var i, j, min_idx;
+    for (i = 0; i < n-1; i++)
+    {
+        min_idx = i;
+        for (j = i + 1; j < n; j++){
+        if (arr[j] < arr[min_idx])
+            min_idx = j;
+        swap(arr,min_idx, i);
+        printArrayFast(arr);
+        waitforme(250);
+        }
+    }
+}
+
+
+
 
 async function insertionSort(arr)
 {
@@ -72,7 +105,6 @@ async function bblSort(arr){
     activateAll();
 }
 
-     
 function printArrayFast(a){
     for(i = 0; i<10; i++) {
         var id1='arr'+i;
