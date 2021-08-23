@@ -27,11 +27,10 @@ async function insertionSort(arr)
             arr[j + 1] = arr[j]; 
             j = j - 1; 
             printArrayFast(arr);
-            
         } 
         arr[j + 1] = key; 
         document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right,rgb(255, 255, 255),red, red)";
-        await waitforme(500);
+        await waitforme(250);
         document.getElementById('arr'+(j+1)).style.background = "green";
     } 
     document.getElementById('arr'+(i-1)).style.background = "green";

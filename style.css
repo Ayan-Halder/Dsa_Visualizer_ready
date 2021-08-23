@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: "poppins";
 }
 
 #h2{
@@ -49,4 +50,15 @@
     padding: 20px;
     margin: 20px auto;
     border-radius: 5px;
+}
+
+.descriptions{
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.dec-heading{
+    margin: 10px;
+    padding: 10px;
 }
