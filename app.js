@@ -37,7 +37,7 @@ function swap(arr,xp, yp)
     arr[xp] = arr[yp];
     arr[yp] = temp;
 }
- 
+
 async function selectionSort(arr)
 {
     n = arr.length;
