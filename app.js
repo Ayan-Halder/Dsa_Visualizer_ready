@@ -13,31 +13,45 @@ function waitforme(ms)  {
     })
 }
 
+function disableAll(){
+    button.disabled = true;
+    inserSort.disabled = true;
+    sortit.disabled = true;
+}
+
+function activateAll(){
+    button.disabled = false;
+    inserSort.disabled = false;
+    sortit.disabled = false;
+}
 
 async function insertionSort(arr)
-{ 
+{
+    disableAll();
     n = arr.length;
-    let i, key, j; 
+    let i, key, j;
     for (i = 1; i < n; i++)
-    { 
+    {
         key = arr[i]; 
         j = i - 1; 
         while (j >= 0 && arr[j] > key)
-        { 
-            arr[j + 1] = arr[j]; 
-            j = j - 1; 
+        {
+            arr[j + 1] = arr[j];
+            j = j - 1;
             printArrayFast(arr);
-        } 
+        }
         arr[j + 1] = key; 
         document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right,rgb(255, 255, 255),red, red)";
         await waitforme(250);
         document.getElementById('arr'+(j+1)).style.background = "green";
-    } 
+    }
     document.getElementById('arr'+(i-1)).style.background = "green";
-} 
-   
+    activateAll();
+}
+
 
 async function bblSort(arr){
+    disableAll();
     for(var i = 0; i < arr.length; i++){
       for(var j = 0; j < ( arr.length - i -1 ); j++){
         if(arr[j] > arr[j+1]){
@@ -55,6 +69,7 @@ async function bblSort(arr){
         document.getElementById('arr'+i).style.background = "green";
     }
     document.getElementById('arr'+ (i-1)).style.background = "green";
+    activateAll();
 }
 
      
@@ -84,12 +99,13 @@ function printArray(a){
 }
 
 function randomarray(){
+    disableAll();
     let a = [];
     for(i = 0; i<10; i++) {
         a[i] = Math.floor(Math.random() * 100);
     }
     printArray(a);
-
+    activateAll();
     return a;
 }
 
