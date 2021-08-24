@@ -73,12 +73,12 @@
 .disabled{
     border-color: rgb(76, 76, 76);
     color:rgb(76, 76, 76);
-    background-color: white;
+    background-color: rgb(201, 201, 201);
     cursor: default;
 }
 
 .disabled:hover{
     border-color: rgb(76, 76, 76);
-    background-color: white;
+    background-color: rgb(201, 201, 201);
     color:rgb(76, 76, 76);
 }
