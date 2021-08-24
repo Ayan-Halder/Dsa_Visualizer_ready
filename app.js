@@ -1,6 +1,7 @@
 let button = document.getElementById('arraygen')
 let sortit = document.getElementById('sortit')
 let inserSort = document.getElementById('inSort')
+let secSort = document.getElementById('secSort')
 let head = document.getElementById('h2')
 let array = document.getElementsByClassName('arr')
 let arraytosort;
@@ -12,6 +13,7 @@ function waitforme(ms)  {
     })
 }
 
+
 function disableAll(){
     button.disabled = true;
     button.classList.add("disabled");
@@ -19,6 +21,8 @@ function disableAll(){
     inserSort.classList.add("disabled");
     sortit.disabled = true;
     sortit.classList.add("disabled");
+    secSort.disabled = true;
+    secSort.classList.add("disabled");
 }
 
 function activateAll(){
@@ -28,31 +32,44 @@ function activateAll(){
     inserSort.classList.remove("disabled");
     sortit.disabled = false;
     sortit.classList.remove("disabled");
+    secSort.disabled = false;
+    secSort.classList.remove("disabled");
 }
 
 
 function swap(arr,xp, yp)
 {
-    var temp = arr[xp];
-    arr[xp] = arr[yp];
-    arr[yp] = temp;
+	var temp = arr[xp];
+	arr[xp] = arr[yp];
+	arr[yp] = temp;
 }
 
 async function selectionSort(arr)
 {
-    n = arr.length;
-    var i, j, min_idx;
-    for (i = 0; i < n-1; i++)
-    {
-        min_idx = i;
-        for (j = i + 1; j < n; j++){
-        if (arr[j] < arr[min_idx])
-            min_idx = j;
-        swap(arr,min_idx, i);
-        printArrayFast(arr);
-        waitforme(250);
+    disableAll();
+    var n = arr.length;
+	var i, j, min_idx;
+	for (i = 0; i < n-1; i++)
+	{
+        
+		min_idx = i;
+		for (j = i + 1; j < n; j++){
+        
+		if (arr[j] < arr[min_idx])
+			min_idx = j;
+
         }
-    }
+        document.getElementById('arr' + min_idx).style.background = "linear-gradient(to right,rgb(255, 255, 255),red, red)";
+		swap(arr,min_idx, i);
+        printArrayFast(arr);
+        document.getElementById('arr'+i).style.background = "linear-gradient(to right,rgb(255, 255, 255),red, red)";
+        await waitforme(500);
+        document.getElementById('arr'+i).style.background = "linear-gradient(to right,rgb(255, 255, 255), rgb(183, 255, 183), green)";
+        document.getElementById('arr' + min_idx).style.background = "linear-gradient(to right,rgb(255, 255, 255), rgb(183, 255, 183), green)";
+        document.getElementById('arr'+i).style.background = "linear-gradient(to right, green, rgb(183, 255, 183), green)";
+	}
+    document.getElementById('arr'+i).style.background = "linear-gradient(to right, green, rgb(183, 255, 183), green)";
+    activateAll();
 }
 
 
@@ -68,17 +85,19 @@ async function insertionSort(arr)
         key = arr[i]; 
         j = i - 1; 
         while (j >= 0 && arr[j] > key)
-        {
-            arr[j + 1] = arr[j];
-            j = j - 1;
-            printArrayFast(arr);
+        { 
+            arr[j + 1] = arr[j]; 
+            j = j - 1; 
+            
         }
+        arr[j + 1] = key; 
         arr[j + 1] = key; 
         document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right,rgb(255, 255, 255),red, red)";
         await waitforme(250);
-        document.getElementById('arr'+(j+1)).style.background = "green";
+        printArrayFast(arr);
+        document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right, green, rgb(183, 255, 183), green)";
     }
-    document.getElementById('arr'+(i-1)).style.background = "green";
+    document.getElementById('arr'+(i-1)).style.background = "linear-gradient(to right, green, rgb(183, 255, 183), green)";
     activateAll();
 }
 
@@ -95,13 +114,11 @@ async function bblSort(arr){
                 document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right,rgb(255, 255, 255),red,  red)";
                 printArray(arr);
                 await waitforme(500);
-                // document.getElementById('arr'+j).style.background = "";
             }
-            document.getElementById('arr'+i).style.background = "green";
         } 
-        document.getElementById('arr'+i).style.background = "green";
+        document.getElementById('arr'+i).style.background = "linear-gradient(to right, green, rgb(183, 255, 183), green)";
     }
-    document.getElementById('arr'+ (i-1)).style.background = "green";
+    document.getElementById('arr'+ (i-1)).style.background = "linear-gradient(to right, green, rgb(183, 255, 183), green)";
     activateAll();
 }
 
@@ -153,6 +170,9 @@ inserSort.addEventListener("click", function(){
     insertionSort(arraytosort);
 });
 
+secSort.addEventListener("click", function(){
+    selectionSort(arraytosort);
+});
 
 
 
