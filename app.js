@@ -131,6 +131,7 @@ function printArrayFast(a){
 }
 
 function printArray(a){
+    disableAll();
     var i = 0;
     function myLoop() {
     setTimeout(function() {  
@@ -145,16 +146,17 @@ function printArray(a){
     }, 100)
     }
     myLoop(); 
+    activateAll();
 }
 
 function randomarray(){
-    disableAll();
+    
     let a = [];
     for(i = 0; i<10; i++) {
         a[i] = Math.floor(Math.random() * 100);
     }
     printArray(a);
-    activateAll();
+    
     return a;
 }
 
