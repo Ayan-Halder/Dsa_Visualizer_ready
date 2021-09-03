@@ -93,7 +93,7 @@ async function insertionSort(arr)
         arr[j + 1] = key; 
         arr[j + 1] = key; 
         document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right,rgb(255, 255, 255),red, red)";
-        await waitforme(250);
+        await waitforme(500);
         printArrayFast(arr);
         document.getElementById('arr'+(j+1)).style.background = "linear-gradient(to right, green, rgb(183, 255, 183), green)";
     }
