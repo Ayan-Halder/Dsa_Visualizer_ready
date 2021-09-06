@@ -71,14 +71,14 @@
 }
 
 .disabled{
-    border-color: rgb(76, 76, 76);
+    border-color: rgb(116, 116, 116);
     color:rgb(76, 76, 76);
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(238, 238, 238);
     cursor: default;
 }
 
 .disabled:hover{
-    border-color: rgb(76, 76, 76);
-    background-color: rgb(201, 201, 201);
+    border-color: rgb(116, 116, 116);
+    background-color: rgb(238, 238, 238);
     color:rgb(76, 76, 76);
 }
